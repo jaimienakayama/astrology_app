@@ -18,8 +18,9 @@ app.post("/horoscopes", (req, res) => {
 });
 
 app.post("/subscribe", (req, res) => {
-  const email = req.body.data;
-  const qs = `INSERT INTO emails (email) VALUES (?)`;
+  const email = req.body.data.toLowerCase();
+  console.log(email);
+  const qs = "INSERT IGNORE INTO emails (email) VALUES (?)";
   db.query(qs, [email], (err) => {
     err
       ? res.status(422).send("error inserting into db")
