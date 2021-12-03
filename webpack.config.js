@@ -4,7 +4,7 @@ const DIST_DIR = path.join(__dirname, "dist");
 
 module.exports = {
   mode: "development",
-  entry: path.join(SRC_DIR, "index.jsx"),
+  entry: `${SRC_DIR}/App.jsx`,
   output: {
     path: DIST_DIR,
     filename: "bundle.js",
