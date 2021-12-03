@@ -11,13 +11,16 @@ const Footer = () => {
   const handleOnClick = (email) => {
     axios
       .post("/subscribe", { data: email })
-      .then((r) => setResponse("Thanks for subscribing!"))
+      .then((r) => {
+        setResponse("Thanks for subscribing!");
+        setEmail("");
+      })
       .catch((err) => setResponse("Oops! Something went wrong :("));
   };
   return (
     <>
       Please subscibe to our newsletter!
-      <input type="email" onChange={handleOnChange}></input>
+      <input type="email" onChange={handleOnChange} value={email}></input>
       <Button
         text="subscribe"
         handleOnClick={() => {
