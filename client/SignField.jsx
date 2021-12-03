@@ -4,11 +4,12 @@ import Button from "./Button.jsx";
 
 const SignField = ({ setSign, toggleView, sign, setHoroscope }) => {
   const handleOnChange = (e) => {
-    setSign(e.target.value);
+    setSign(e.target.value.toUpperCase());
   };
 
   const handleOnClick = (sign) => {
-    axios.post("/horoscopes", { data: sign }).then((r) => {
+    const s = sign.toLowerCase();
+    axios.post("/horoscopes", { data: s }).then((r) => {
       setHoroscope(r.data);
       toggleView();
     });
