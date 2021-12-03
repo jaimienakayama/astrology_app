@@ -1,9 +1,17 @@
 import React from "react";
+import axios from "axios";
 import Button from "./Button.jsx";
 
-const SignField = ({ setSign, handleOnClick }) => {
+const SignField = ({ setSign, toggleView, sign, setHoroscope }) => {
   const handleOnChange = (e) => {
     setSign(e.target.value);
+  };
+
+  const handleOnClick = (sign) => {
+    axios.post("/horoscopes", { data: sign }).then((r) => {
+      setHoroscope(r.data);
+      toggleView();
+    });
   };
 
   return (
@@ -22,7 +30,12 @@ const SignField = ({ setSign, handleOnClick }) => {
           />
         </div>
       </div>
-      <Button text="submit" handleOnClick={handleOnClick} />
+      <Button
+        text="submit"
+        handleOnClick={() => {
+          handleOnClick(sign);
+        }}
+      />
     </>
   );
 };
