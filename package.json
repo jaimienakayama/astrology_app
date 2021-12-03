@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/app.js",
+    "start": "npx nodemon server/app.js",
     "build": "webpack --watch --mode development"
   },
   "repository": {
@@ -15,8 +15,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.23.0",
+    "axios": "^0.24.0",
     "express": "^4.17.1",
+    "mysql2": "^2.3.3",
     "nodemon": "^2.0.15",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
