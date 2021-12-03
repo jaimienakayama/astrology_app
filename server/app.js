@@ -1,5 +1,6 @@
 const express = require("express");
 const axios = require("axios");
+const db = require("../db/index.js");
 
 const app = express();
 const port = 3000;
@@ -10,15 +11,20 @@ app.use(express.urlencoded({ extended: false }));
 
 app.post("/horoscopes", (req, res) => {
   const sign = req.body.data;
-
   axios
     .post(`https://aztro.sameerkumar.website/?sign=${sign}&day=today`)
-    .then((r) => {
-      res.send(r.data);
-    })
-    .catch((err) => {
-      res.send(err);
-    });
+    .then((r) => res.status(200).send(r.data))
+    .catch((err) => res.status(404).send(err));
+});
+
+app.post("/subscribe", (req, res) => {
+  const email = req.body.data;
+  const qs = `INSERT INTO emails (email) VALUES (?)`;
+  db.query(qs, [email], (err) => {
+    err
+      ? res.status(422).send("error inserting into db")
+      : res.status(204).send("thanks for subscribing!");
+  });
 });
 
 app.listen(port, () => {
