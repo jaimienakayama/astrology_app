@@ -1,15 +1,15 @@
 import React from "react";
+import ButtonStyled from "../styles/ButtonStyles";
 
 const Button = ({ text, handleOnClick }) => {
   return (
-    <button
-      className={`${text}-button`}
+    <ButtonStyled
       onClick={() => {
         handleOnClick();
       }}
     >
       {text}
-    </button>
+    </ButtonStyled>
   );
 };
 

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import SignField from "./components/SignField.jsx";
 import ResponseField from "./components/ResponseField.jsx";
 import Footer from "./components/Footer.jsx";
+import { GlobalStyle } from "./styles/GlobalStyles.js";
 
 const App = () => {
   const [responseShown, setResponseShown] = useState(false);
@@ -20,6 +21,7 @@ const App = () => {
 
   return (
     <>
+      <GlobalStyle />
       {!responseShown ? (
         <SignField
           setSign={setSign}
