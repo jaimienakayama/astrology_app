@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button.jsx";
+import { Container, Header } from "../styles/GlobalStyles.js";
+import {
+  DetailsStyled,
+  DailyMessageStyled,
+  DescriptionStyled,
+  SectionStyled,
+  ResponseStyled,
+  TitleStyled,
+} from "../styles/ResponseFieldStyles.js";
 
 const ResponseField = ({ sign, toggleView, horoscope, reset }) => {
   const [dateRange, setDateRange] = useState("");
@@ -19,7 +28,7 @@ const ResponseField = ({ sign, toggleView, horoscope, reset }) => {
       setCurrentDate(horoscope.current_date);
       setDescription(horoscope.description);
       setLuckyNumber(horoscope.lucky_number);
-      setLuckyTime(horoscope.luckyTime);
+      setLuckyTime(horoscope.lucky_time);
       setMood(horoscope.mood);
     }
   }, [horoscope]);
@@ -30,22 +39,40 @@ const ResponseField = ({ sign, toggleView, horoscope, reset }) => {
   };
 
   return (
-    <>
-      <div className="response-header">
-        <h3>{sign}</h3>
-        <div className="response-field">
-          Current date: {currentDate}
-          Date range: {dateRange}
-          Compatibility: {compatibility}
-          Color: {color}
-          Lucky number: {luckyNumber}
-          Lucky time: {luckyTime}
-          Mood: {mood}
-          Daily horoscope: {description}
-        </div>
-      </div>
-      <Button text="back" handleOnClick={handleOnClick} />
-    </>
+    <Container>
+      <Header>✨ {sign} ✨</Header>
+      <Container>
+        <div>Current date: {currentDate}</div>
+        <div>Date range: {dateRange}</div>
+        <DailyMessageStyled>
+          <TitleStyled>Daily horoscope:</TitleStyled>
+          <DescriptionStyled>{description}</DescriptionStyled>
+        </DailyMessageStyled>
+        <DetailsStyled>
+          <SectionStyled>
+            <TitleStyled>Compatibility:</TitleStyled>
+            <ResponseStyled>{compatibility}</ResponseStyled>
+          </SectionStyled>
+          <SectionStyled>
+            <TitleStyled>Color:</TitleStyled>
+            <ResponseStyled>{color}</ResponseStyled>
+          </SectionStyled>
+          <SectionStyled>
+            <TitleStyled>Lucky number:</TitleStyled>
+            <ResponseStyled>{luckyNumber}</ResponseStyled>
+          </SectionStyled>
+          <SectionStyled>
+            <TitleStyled>Lucky time:</TitleStyled>
+            <ResponseStyled>{luckyTime}</ResponseStyled>
+          </SectionStyled>
+          <SectionStyled>
+            <TitleStyled>Mood:</TitleStyled>
+            <ResponseStyled>{mood}</ResponseStyled>
+          </SectionStyled>
+        </DetailsStyled>
+      </Container>
+      <Button text="Back" handleOnClick={handleOnClick} />
+    </Container>
   );
 };
 

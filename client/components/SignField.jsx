@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import Button from "./Button.jsx";
+import { SignFieldStyled } from "../styles/SignFieldStyles.js";
+import { Container, InputStyled, Header } from "../styles/GlobalStyles.js";
 
 const SignField = ({ setSign, toggleView, sign, setHoroscope }) => {
   const handleOnChange = (e) => {
@@ -16,28 +18,19 @@ const SignField = ({ setSign, toggleView, sign, setHoroscope }) => {
   };
 
   return (
-    <>
-      <div className="welcome">
-        <h3>welcome</h3>
-        <div className="sign-field">
-          <label htmlFor="sign">Enter sign:</label>
-          <input
-            type="text"
-            className="sign"
-            required
-            minLength="3"
-            maxLength="15"
-            onChange={(e) => handleOnChange(e)}
-          />
-        </div>
-      </div>
+    <Container>
+      <Header>🌸 WELCOME 🌸</Header>
+      <SignFieldStyled>
+        Enter sign:
+        <InputStyled type="text" onChange={(e) => handleOnChange(e)} />
+      </SignFieldStyled>
       <Button
-        text="submit"
+        text="Submit"
         handleOnClick={() => {
           handleOnClick(sign);
         }}
       />
-    </>
+    </Container>
   );
 };
 
