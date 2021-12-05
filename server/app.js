@@ -20,11 +20,22 @@ app.post("/horoscopes", (req, res) => {
 
 app.post("/subscribe", (req, res) => {
   const email = req.body.data.toLowerCase();
-  const qs = "INSERT IGNORE INTO emails (email) VALUES (?)";
-  db.query(qs, [email], (err) => {
-    err
-      ? res.status(422).send("error inserting into db")
-      : res.status(204).send("thanks for subscribing!");
+  const qsSelect = "SELECT * FROM emails WHERE email=?";
+  const qsInsert = "INSERT INTO emails (email) VALUES (?)";
+  db.query(qsSelect, [email], (err, r) => {
+    if (err) {
+      res.status(422).send("error searching db");
+    } else {
+      if (r.length) {
+        res.status(200).send("Yay! Your already subscribed 🎉");
+      } else {
+        db.query(qsInsert, [email], (err) => {
+          err
+            ? res.send(422).send("error inserting into db")
+            : res.status(201).send("Thanks for subscribing! 🥳");
+        });
+      }
+    }
   });
 });
 
