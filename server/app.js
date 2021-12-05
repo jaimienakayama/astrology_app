@@ -1,9 +1,10 @@
+require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
 const db = require("../db/index.js");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 app.use(express.static(__dirname + "/../dist"));
 app.use(express.json());
