@@ -11,10 +11,9 @@ const Footer = () => {
   const handleOnChange = (e) => setEmail(e.target.value);
 
   const validateEmail = (email) => {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-      return true;
-    }
-    return false;
+    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+      ? true
+      : false;
   };
 
   const handleOnClick = (email) => {
@@ -23,7 +22,7 @@ const Footer = () => {
       axios
         .post("/subscribe", { data: email })
         .then((r) => {
-          setResponse("Thanks for subscribing! 🥳");
+          setResponse(r.data);
           setEmail("");
         })
         .catch((err) => setResponse("Oops! Something went wrong :("));
