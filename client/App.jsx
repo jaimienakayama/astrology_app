@@ -1,42 +1,14 @@
 import ReactDOM from "react-dom";
 import React, { useState } from "react";
-import SignField from "./components/SignField.jsx";
-import ResponseField from "./components/ResponseField.jsx";
 import Footer from "./components/Footer.jsx";
 import { GlobalStyle } from "./styles/GlobalStyles.js";
+import TextField from "./components/TextField.jsx";
 
 const App = () => {
-  const [responseShown, setResponseShown] = useState(false);
-  const [sign, setSign] = useState("");
-  const [horoscope, setHoroscope] = useState("");
-
-  const toggleView = () => {
-    setResponseShown(!responseShown);
-  };
-
-  const reset = () => {
-    setSign("");
-    setHoroscope("");
-  };
-
   return (
     <>
       <GlobalStyle />
-      {!responseShown ? (
-        <SignField
-          setSign={setSign}
-          toggleView={toggleView}
-          setHoroscope={setHoroscope}
-          sign={sign}
-        />
-      ) : (
-        <ResponseField
-          sign={sign}
-          toggleView={toggleView}
-          horoscope={horoscope}
-          reset={reset}
-        />
-      )}
+      <TextField />
       <Footer />
     </>
   );
