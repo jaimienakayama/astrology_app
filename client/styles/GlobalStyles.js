@@ -33,3 +33,13 @@ export const InputStyled = styled.input`
   border: 1px solid #ffffff;
   font-family: "Trispace", sans-serif;
 `;
+
+export const SubscribeInput = styled.input`
+  background-color: rgba(255, 255, 255, 0);
+  /* border-radius: 5px; */
+  text-align: center;
+  margin: 10px;
+  color: #ffffff;
+  border: none;
+  font-family: "Trispace", sans-serif;
+`;
