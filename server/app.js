@@ -22,16 +22,18 @@ app.post("/subscribe", (req, res) => {
   const email = req.body.data.toLowerCase();
   const qsSelect = "SELECT * FROM emails WHERE email=?";
   const qsInsert = "INSERT INTO emails (email) VALUES (?)";
+  const errorMsg = "Oops! Something went wrong :(";
   db.query(qsSelect, [email], (err, r) => {
     if (err) {
-      res.status(422).send("error searching db");
+      res.statusMessage = errorMsg;
+      res.status(422).end();
     } else {
       if (r.length) {
         res.status(200).send("Yay! Your already subscribed 🎉");
       } else {
         db.query(qsInsert, [email], (err) => {
           err
-            ? res.send(422).send("error inserting into db")
+            ? res.status(422).send()
             : res.status(201).send("Thanks for subscribing! 🥳");
         });
       }

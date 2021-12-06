@@ -4,7 +4,9 @@ export const FooterStyled = styled.div`
   position: fixed;
   bottom: 0;
   font-size: 12pt;
-  left: 0;
-  margin-left: 400px;
   z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
 `;
