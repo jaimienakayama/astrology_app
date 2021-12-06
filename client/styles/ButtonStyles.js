@@ -3,13 +3,12 @@ import styled from "styled-components";
 const ButtonStyled = styled.button`
   cursor: pointer;
   border: 0px;
+  background-color: transparent;
   margin-top: 3px;
-  border-radius: 10px;
-  line-height: 12px;
-  color: #766191;
-  background-color: #b49bd4;
+  line-height: 14px;
+  color: #ffffff;
   font-size: 12pt;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Trispace", sans-serif;
 `;
 
 export default ButtonStyled;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button.jsx";
-import { Container, Header } from "../styles/GlobalStyles.js";
+import { Container } from "../styles/GlobalStyles.js";
 import {
   DetailsStyled,
   DailyMessageStyled,
@@ -8,6 +8,8 @@ import {
   SectionStyled,
   ResponseStyled,
   TitleStyled,
+  CurrentDateStyled,
+  SignHeader,
 } from "../styles/ResponseFieldStyles.js";
 
 const ResponseField = ({ sign, toggleView, horoscope, reset }) => {
@@ -40,10 +42,10 @@ const ResponseField = ({ sign, toggleView, horoscope, reset }) => {
 
   return (
     <Container>
-      <Header>✨ {sign} ✨</Header>
+      <SignHeader>{sign}</SignHeader>
       <Container>
-        <div>Current date: {currentDate}</div>
-        <div>Date range: {dateRange}</div>
+        <CurrentDateStyled>Current date: {currentDate}</CurrentDateStyled>
+        <TitleStyled>Date range: {dateRange}</TitleStyled>
         <DailyMessageStyled>
           <TitleStyled>Daily horoscope:</TitleStyled>
           <DescriptionStyled>{description}</DescriptionStyled>

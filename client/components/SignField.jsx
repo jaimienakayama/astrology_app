@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
 import Button from "./Button.jsx";
-import { SignFieldStyled } from "../styles/SignFieldStyles.js";
-import { Container, InputStyled, Header } from "../styles/GlobalStyles.js";
+import { SignFieldStyled, WelcomeHeader } from "../styles/SignFieldStyles.js";
+import { Container, InputStyled } from "../styles/GlobalStyles.js";
 
 const SignField = ({ setSign, toggleView, sign, setHoroscope }) => {
   const handleOnChange = (e) => {
@@ -19,7 +19,7 @@ const SignField = ({ setSign, toggleView, sign, setHoroscope }) => {
 
   return (
     <Container>
-      <Header>🌸 WELCOME 🌸</Header>
+      <WelcomeHeader>WELCOME</WelcomeHeader>
       <SignFieldStyled>
         Enter sign:
         <InputStyled type="text" onChange={(e) => handleOnChange(e)} />
