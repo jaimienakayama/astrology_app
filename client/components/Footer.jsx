@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Button from "./Button.jsx";
-import { InputStyled } from "../styles/GlobalStyles.js";
+import { InputStyled, Container } from "../styles/GlobalStyles.js";
 import { FooterStyled } from "../styles/FooterStyles.js";
 
 const Footer = () => {
@@ -25,7 +25,9 @@ const Footer = () => {
           setResponse(r.data);
           setEmail("");
         })
-        .catch((err) => setResponse("Oops! Something went wrong :("));
+        .catch((err) => {
+          setResponse("Oops! Something went wrong :(");
+        });
     } else {
       setResponse("Please enter a valid email address!");
     }
