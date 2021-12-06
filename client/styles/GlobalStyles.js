@@ -2,15 +2,17 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #b49bd4;
-    height: 90vh;
-    font-family: "Quicksand", sans-serif;
-    color: #766191;
+    background-image: url("https://wallpaperaccess.com/full/1198688.jpg");
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Trispace', sans-serif;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
+    margin: 0px;
   }
 `;
 
@@ -23,15 +25,11 @@ export const Container = styled.div`
 `;
 
 export const InputStyled = styled.input`
-  border-radius: 10px;
-  border-width: 0px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 5px;
   text-align: center;
   margin: 10px;
-  opacity: 0.5;
-`;
-
-export const Header = styled.div`
-  font-size: 48pt;
-  font-weight: bold;
-  padding: 10px;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  font-family: "Trispace", sans-serif;
 `;

@@ -32,4 +32,16 @@ export const ResponseStyled = styled.div`
 
 export const TitleStyled = styled.div`
   font-style: italic;
+  font-weight: 200;
+`;
+
+export const CurrentDateStyled = styled.div`
+  font-weight: bold;
+`;
+
+export const SignHeader = styled.div`
+  font-size: 48pt;
+  font-weight: bold;
+  padding: 10px;
+  font-family: "Tourney", cursive;
 `;
