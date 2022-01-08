@@ -36,7 +36,6 @@ export const InputStyled = styled.input`
 
 export const SubscribeInput = styled.input`
   background-color: rgba(255, 255, 255, 0);
-  /* border-radius: 5px; */
   text-align: center;
   margin: 10px;
   color: #ffffff;
